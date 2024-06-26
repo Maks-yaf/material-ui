@@ -5,40 +5,21 @@ import About from "@/pages/about/About";
 import avatarPng from "@/assets/avatar-png.png";
 import avatarJpg from "@/assets/avatar-jpg.jpg";
 import CalendarSvg from "@/assets/calendar-svg.svg";
+import Button from '@mui/material/Button'
 
-//TREE SHAKING
-function TODO() {
-    TODO2()
-}
-function TODO2() {
-    throw new Error()
-}
+
 
 export const App = () => {
     const [count, setCount] = React.useState<number>(0);
 
     const increment = () => {
-        // setCount(prev => prev + 1);
-        TODO();
+        setCount(prev => prev + 1);
+
     }
 
-    // TODO(12312)
-    //
-    // if(__PLATFORM__ === 'desktop') {
-    //     return <div>ISDESKTOPPLATFORM</div>;
-    // }
-    //
-    // if(__PLATFORM__ === 'mobile') {
-    //     return <div>ISMOBILEPLATFORM</div>;
-    // }
-    //
-    // if(__ENV__ === 'development') {
-    //    //addDevTools
-    // }
-
     return (
-        <div data-testid={"appDataTestId"}>
-            <h1 data-testid={"platformDataTestId"}>PLATFORM={__PLATFORM__}</h1>
+        <div >
+            <h1>PLATFORM={__PLATFORM__}</h1>
             <div>
                 <img width={100} height={100} src={avatarPng} alt="Avatar Png"/>
                 <img width={100} height={100} src={avatarJpg} alt="Avatar Jpg"/>
@@ -50,9 +31,11 @@ export const App = () => {
             <br/>
             <Link to={`/shop`}>shop</Link>
             <h1 className={classes.value}>{count}</h1>
-            <button className={classes.button} onClick={increment}>
+            <Button variant="outlined"
+                    className={classes.button}
+                    onClick={increment}>
                 25
-            </button>
+            </Button>
             <Outlet/>
         </div>
     );
